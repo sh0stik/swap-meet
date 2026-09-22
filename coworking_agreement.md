@@ -20,16 +20,18 @@ Work flow:
 Schedule:
 
 1. Daria: Wave 1-2 (PR Merged by Tuesday 9:00 AM PST)
+
 2. Rahma: Wave 3-4  (PR Merged by Tuesday 1:00 PM PST)
 
 - Meet on Tuesday 1-3 PM to review Wave 1-4
 
-3. Daria: Wave 5 (PR Merged by Wednesday 5:00 PM PST)
-4. Rahma: Wave 6 (PR Merged by Thrursday 9:00 AM PST )
+3. Rahma: Wave 5 (PR Open by Wednesday 1:00 PM PST) 
 
-- Meet on Wednesday 2-3 PM review Wave 5-6 
-- Meet on Thursday 1-3 PM to final touches, any optional code, submit on Learn. 
+- Meet on Wednesday 2-3 PM review Wave 5, Daria can close the PR for Wave 5
 
+4. Daria: Wave 6 (PR Merged by Wednesday 5:00 AM PST ) 
+
+- Meet on Thursday 2-3 PM to final touches, any optional code, submit on Learn. 
 
 
 Refractor/Review code:
