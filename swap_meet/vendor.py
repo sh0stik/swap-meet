@@ -41,15 +41,17 @@ class Vendor:
         return self.swap_items(other_vendor, my_first, their_first)
 
     def get_by_category(self, category):
-        items = self.vendor_filter(lambda item: item.get_category() == category, self.inventory)
+        items = self.vendor_filter(
+            lambda item: item.get_category() == category, self.inventory
+        )
 
         return items
-    
+
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
         if not category_items:
             return None
-        
+
         best_item = self.vendor_max(category_items, key=lambda item: item.condition)
 
         return best_item
@@ -61,13 +63,20 @@ class Vendor:
         return self.swap_items(other_vendor, best_item_for_them, best_item_for_me)
 
     def swap_by_newest(self, other_vendor):
+        if (
+            len({item.age for item in self.inventory}) <= 1
+            or len({item.age for item in other_vendor.inventory}) <= 1
+        ):
+            return False
         my_newest = self.vendor_max(self.inventory, key=lambda item: -item.age)
-        their_newest = self.vendor_max(other_vendor.inventory, key=lambda item: -item.age)
+        their_newest = self.vendor_max(
+            other_vendor.inventory, key=lambda item: -item.age
+        )
 
         return self.swap_items(other_vendor, my_newest, their_newest)
 
     def vendor_filter(self, key, collection):
-        if not collection :
+        if not collection:
             return None
         output = []
         for item in collection:
@@ -79,7 +88,7 @@ class Vendor:
     def vendor_max(self, collection, key):
         if not collection:
             return None
-    
+
         cur_max = collection[0]
         max_val = key(cur_max)
         for item in collection:
@@ -88,5 +97,5 @@ class Vendor:
             if cur_val > max_val:
                 cur_max = item
                 max_val = cur_val
-        
+
         return cur_max
