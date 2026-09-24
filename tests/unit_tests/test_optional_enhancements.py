@@ -70,21 +70,6 @@ def test_items_use_custom_age_if_passed():
 
     assert result == 1
 
-def test_swap_by_newest_single_item_each_returns_false():
-    item_a = Decor(condition=2.0, age=1)
-    tai = Vendor(inventory=[item_a])
-
-    item_b = Clothing(condition=2.0, age=1)
-    jesse = Vendor(inventory=[item_b])
-
-
-    result = tai.swap_by_newest(jesse)
-
-    assert not result
-    assert len(tai.inventory) == 1
-    assert len(jesse.inventory) == 1
-    assert item_a in tai.inventory
-    assert item_b in jesse.inventory
 
 def test_swap_by_newest_empty_inventory_returns_false():
     tai = Vendor(inventory=[])

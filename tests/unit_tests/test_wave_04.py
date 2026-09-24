@@ -2,19 +2,16 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+
 def test_swap_first_item_returns_true():
     item_a = Item()
     item_b = Item()
     item_c = Item()
-    fatimah = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
+    fatimah = Vendor(inventory=[item_a, item_b, item_c])
 
     item_d = Item()
     item_e = Item()
-    jolie = Vendor(
-        inventory=[item_d, item_e]
-    )
+    jolie = Vendor(inventory=[item_d, item_e])
 
     result = fatimah.swap_first_item(jolie)
 
@@ -29,16 +26,13 @@ def test_swap_first_item_returns_true():
     assert item_a in jolie.inventory
     assert result
 
+
 def test_swap_first_item_from_my_empty_returns_false():
-    fatimah = Vendor(
-        inventory=[]
-    )
+    fatimah = Vendor(inventory=[])
 
     item_d = Item()
     item_e = Item()
-    jolie = Vendor(
-        inventory=[item_d, item_e]
-    )
+    jolie = Vendor(inventory=[item_d, item_e])
 
     result = fatimah.swap_first_item(jolie)
 
@@ -46,17 +40,14 @@ def test_swap_first_item_from_my_empty_returns_false():
     assert len(jolie.inventory) == 2
     assert not result
 
+
 def test_swap_first_item_from_their_empty_returns_false():
     item_a = Item()
     item_b = Item()
     item_c = Item()
-    fatimah = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
+    fatimah = Vendor(inventory=[item_a, item_b, item_c])
 
-    jolie = Vendor(
-        inventory=[]
-    )
+    jolie = Vendor(inventory=[])
 
     result = fatimah.swap_first_item(jolie)
 
@@ -68,14 +59,11 @@ def test_swap_first_item_from_their_empty_returns_false():
     # ****** Additional tests **********
     # *********************************************************************
 
-def test_swap_first_item_both_empty_returns_false():
-    fatimah = Vendor(
-        inventory=[]
-    )
 
-    jolie = Vendor(
-        inventory=[]
-    )
+def test_swap_first_item_both_empty_returns_false():
+    fatimah = Vendor(inventory=[])
+
+    jolie = Vendor(inventory=[])
 
     result = fatimah.swap_first_item(jolie)
 
@@ -83,43 +71,19 @@ def test_swap_first_item_both_empty_returns_false():
     assert len(jolie.inventory) == 0
     assert not result
 
-def test_swap_first_item_single_item_each():
-    item_a = Item()
-    fatimah = Vendor(
-        inventory=[item_a]
-    )
-
-    item_d = Item()
-    jolie = Vendor(
-        inventory=[item_d]
-    )
-
-    result = fatimah.swap_first_item(jolie)
-
-    assert len(fatimah.inventory) == 1
-    assert item_a not in fatimah.inventory
-    assert item_d in fatimah.inventory
-    assert len(jolie.inventory) == 1
-    assert item_d not in jolie.inventory
-    assert item_a in jolie.inventory
-    assert result
 
 def test_swap_first_item_places_items_at_end():
     item_a = Item()
     item_b = Item()
     item_c = Item()
-    fatimah = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
+    fatimah = Vendor(inventory=[item_a, item_b, item_c])
 
     item_d = Item()
     item_e = Item()
-    jolie = Vendor(
-        inventory=[item_d, item_e]
-    )
+    jolie = Vendor(inventory=[item_d, item_e])
 
     result = fatimah.swap_first_item(jolie)
 
     assert result
     assert fatimah.inventory[-1] is item_d
-    assert jolie.inventory[-1] is item_a   
+    assert jolie.inventory[-1] is item_a

@@ -30,9 +30,7 @@ def test_adding_to_inventory():
 
 def test_removing_from_inventory_returns_item():
     item = "item to remove"
-    vendor = Vendor(
-        inventory=["a", "b", "c", item]
-    )
+    vendor = Vendor(inventory=["a", "b", "c", item])
 
     result = vendor.remove(item)
 
@@ -43,9 +41,7 @@ def test_removing_from_inventory_returns_item():
 
 def test_removing_not_found_is_none():
     item = "item to remove"
-    vendor = Vendor(
-        inventory=["a", "b", "c"]
-    )
+    vendor = Vendor(inventory=["a", "b", "c"])
 
     result = vendor.remove(item)
 
@@ -58,6 +54,7 @@ def test_removing_not_found_is_none():
     # ****** Additional tests **********
     # *********************************************************************
 
+
 def test_vendor_default_inventories_are_not_shared():
     vendor_a = Vendor()
     vendor_b = Vendor()
@@ -68,14 +65,13 @@ def test_vendor_default_inventories_are_not_shared():
     assert vendor_a.inventory == ["item"]
     assert vendor_b.inventory == []
 
+
 def test_remove_duplicate_removes_only_one():
-        item = "item to remove"
-        vendor = Vendor(
-            inventory=["a", "b", "c", item, item]
-        )
-    
-        result = vendor.remove(item)
-    
-        assert result == item
-        assert len(vendor.inventory) == 4
-        assert item in vendor.inventory
+    item = "item to remove"
+    vendor = Vendor(inventory=["a", "b", "c", item, item])
+
+    result = vendor.remove(item)
+
+    assert result == item
+    assert len(vendor.inventory) == 4
+    assert item in vendor.inventory

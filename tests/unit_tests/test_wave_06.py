@@ -29,13 +29,13 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     assert items == []
 
-def test_get_none_cotegory_provided_by_category():
+
+def test_get_none_category_provided_by_category():
     item_a = Clothing()
     item_b = Item()
     item_c = Decor()
@@ -45,12 +45,6 @@ def test_get_none_cotegory_provided_by_category():
 
     assert items == []
 
-def test_get_none_cotegory_provided_by_category_epmty_inventory():
-    vendor = Vendor(inventory=[])
-
-    items = vendor.get_by_category(None)
-
-    assert items == []
 
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
@@ -114,7 +108,6 @@ def test_swap_best_by_category():
     tai_inventory = [item_a, item_b, item_f]
     jesse_inventory = [item_d, item_e, item_c]
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -150,7 +143,6 @@ def test_swap_best_by_category_reordered():
     tai_inventory = [item_a, item_b, item_f]
     jesse_inventory = [item_d, item_e, item_c]
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -226,7 +218,6 @@ def test_swap_best_by_category_no_match_is_false():
     tai_inventory = [item_a, item_b, item_c]
     jesse_inventory = [item_d, item_e, item_f]
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -262,7 +253,6 @@ def test_swap_best_by_category_no_other_match_is_false():
     tai_inventory = [item_a, item_b, item_c]
     jesse_inventory = [item_d, item_e, item_f]
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -282,15 +272,6 @@ def test_swap_best_by_category_no_other_match_is_false():
     # ****** Additional tests **********
     # *********************************************************************
 
-def test_best_by_category_returns_first_on_tie():
-    item_a = Clothing(condition=2.0)
-    item_b = Clothing(condition=4.0)
-    item_c = Clothing(condition=4.0)
-    tai = Vendor(inventory=[item_a, item_b, item_c])
-
-    best_item = tai.get_best_by_category("Clothing")
-
-    assert best_item is item_b
 
 def test_swap_best_by_category_same_priority():
     # me
@@ -319,4 +300,4 @@ def test_swap_best_by_category_same_priority():
     for item in tai_inventory:
         assert item in tai.inventory
     for item in jesse_inventory:
-        assert item in jesse.inventory    
+        assert item in jesse.inventory

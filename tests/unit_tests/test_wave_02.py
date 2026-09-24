@@ -29,9 +29,7 @@ def test_item_obj_returns_text_item_for_category():
 def test_get_item_by_id():
     test_id = 12345
     item_custom_id = Item(id=test_id)
-    vendor = Vendor(
-        inventory=[Item(), Item(), item_custom_id]
-    )
+    vendor = Vendor(inventory=[Item(), Item(), item_custom_id])
 
     result_item = vendor.get_by_id(test_id)
     assert result_item is item_custom_id
@@ -43,9 +41,7 @@ def test_get_item_by_id_no_matching():
     item_b = Item()
     item_c = Item()
 
-    vendor = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
+    vendor = Vendor(inventory=[item_a, item_b, item_c])
 
     result_item = vendor.get_by_id(test_id)
     assert result_item is None
@@ -60,18 +56,18 @@ def test_get_item_by_id_no_matching():
     # ****** Additional tests **********
     # *********************************************************************
 
+
 def test_item_id_zero_is_kept():
     item = Item(id=0)
     assert isinstance(item.id, int)
     assert item.id == 0
 
+
 def test_get_by_id_returns_first_of_duplicate_ids():
     test_id = 12345
     item_custom_id = Item(id=test_id)
     duplicate_item_id = Item(id=test_id)
-    vendor = Vendor(
-        inventory=[Item(), Item(), item_custom_id, duplicate_item_id]
-    )
+    vendor = Vendor(inventory=[Item(), Item(), item_custom_id, duplicate_item_id])
 
     result_item = vendor.get_by_id(test_id)
     assert result_item is item_custom_id
