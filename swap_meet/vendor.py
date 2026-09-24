@@ -60,6 +60,12 @@ class Vendor:
 
         return self.swap_items(other_vendor, best_item_for_them, best_item_for_me)
 
+    def swap_by_newest(self, other_vendor):
+        my_newest = self.vendor_max(self.inventory, key=lambda item: -item.age)
+        their_newest = self.vendor_max(other_vendor.inventory, key=lambda item: -item.age)
+
+        return self.swap_items(other_vendor, my_newest, their_newest)
+
     def vendor_filter(self, key, collection):
         if not collection :
             return None
