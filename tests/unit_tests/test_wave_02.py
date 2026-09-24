@@ -55,3 +55,23 @@ def test_get_item_by_id_no_matching():
     assert item_a in items
     assert item_b in items
     assert item_c in items
+
+    # *********************************************************************
+    # ****** Addidtional tests **********
+    # *********************************************************************
+
+def test_item_id_zero_is_kept():
+    item = Item(id=0)
+    assert isinstance(item.id, int)
+    assert item.id == 0
+
+def test_get_by_id_returns_first_of_duplicate_ids():
+    test_id = 12345
+    item_custom_id = Item(id=test_id)
+    duplicate_item_id = Item(id=test_id)
+    vendor = Vendor(
+        inventory=[Item(), Item(), item_custom_id, duplicate_item_id]
+    )
+
+    result_item = vendor.get_by_id(test_id)
+    assert result_item is item_custom_id

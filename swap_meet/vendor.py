@@ -23,6 +23,9 @@ class Vendor:
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
 
+        if self is other_vendor or my_item is their_item:
+            return False
+
         self.remove(my_item)
         other_vendor.add(my_item)
 
@@ -76,8 +79,6 @@ class Vendor:
         return self.swap_items(other_vendor, my_newest, their_newest)
 
     def vendor_filter(self, key, collection):
-        if not collection:
-            return None
         output = []
         for item in collection:
             if key(item):

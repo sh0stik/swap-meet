@@ -53,3 +53,38 @@ def test_removing_not_found_is_none():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     assert result is None
+
+    # *********************************************************************
+    # ****** Addidtional tests **********
+    # *********************************************************************
+
+# test_remove_from_empty_inventory_is_none
+def test_vendor_default_inventories_are_not_shared():
+    vendor_a = Vendor()
+    vendor_b = Vendor()
+
+    vendor_a.add("item")
+
+    assert vendor_a.inventory is not vendor_b.inventory
+    assert vendor_a.inventory == ["item"]
+    assert vendor_b.inventory == []
+
+def test_remove_duplicate_removes_only_one():
+        item = "item to remove"
+        vendor = Vendor(
+            inventory=["a", "b", "c", item, item]
+        )
+    
+        result = vendor.remove(item)
+    
+        assert result == item
+        assert len(vendor.inventory) == 4
+        assert item in vendor.inventory
+
+def test_remove_from_empty_inventory_is_none():
+    item = "item to remove"
+    vendor = Vendor()
+
+    result = vendor.remove(item)
+
+    assert result is None

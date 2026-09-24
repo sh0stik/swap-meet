@@ -17,4 +17,6 @@ class Item:
 
     def condition_description(self):
         """Returns the description for the item's condition."""
+        if self.condition < 0 or self.condition >= len(CONDITION_DESCRIPTION):
+            return None
         return CONDITION_DESCRIPTION[int(self.condition)]
