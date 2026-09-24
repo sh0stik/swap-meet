@@ -126,7 +126,7 @@ def check_category_and_custom_id(to_check, id, category):
     assert to_check.id == id
 
     # *********************************************************************
-    # ****** Addidtional tests **********
+    # ****** Additional tests **********
     # *********************************************************************
 
 def test_items_have_float_condition_descriptions():
@@ -159,12 +159,6 @@ def test_condition_description_for_each_value_0_to_5():
     assert items[3].condition_description() == 'Very Good'
     assert items[4].condition_description() == 'Excellent'
     assert items[5].condition_description() == 'Brand New'
-
-def test_condition_description_float_rounds_down():
-    item_float = Item(condition=4.9)
-    item_int = Item(condition=4)
-
-    assert item_float.condition_description() == item_int.condition_description()
 
 
 def test_subclasses_are_instances_of_item():

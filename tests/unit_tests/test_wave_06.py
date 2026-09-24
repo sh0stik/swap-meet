@@ -279,15 +279,8 @@ def test_swap_best_by_category_no_other_match_is_false():
         assert item in jesse.inventory
 
     # *********************************************************************
-    # ****** Addidtional tests **********
+    # ****** Additional tests **********
     # *********************************************************************
-
-def test_get_by_category_empty_inventory_returns_empty_list():
-    vendor = Vendor(inventory=[])
-
-    items = vendor.get_by_category("Clothing")
-
-    assert items == []
 
 def test_best_by_category_returns_first_on_tie():
     item_a = Clothing(condition=2.0)

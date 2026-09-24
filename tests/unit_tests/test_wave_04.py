@@ -65,7 +65,7 @@ def test_swap_first_item_from_their_empty_returns_false():
     assert not result
 
     # *********************************************************************
-    # ****** Addidtional tests **********
+    # ****** Additional tests **********
     # *********************************************************************
 
 def test_swap_first_item_both_empty_returns_false():

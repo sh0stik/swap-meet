@@ -140,7 +140,7 @@ def test_swap_items_from_their_empty_returns_false():
     assert not result 
 
     # *********************************************************************
-    # ****** Addidtional tests **********
+    # ****** Additional tests **********
     # *********************************************************************
 
 def test_swap_items_both_missing_returns_false():

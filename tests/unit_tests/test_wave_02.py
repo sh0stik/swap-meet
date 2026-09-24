@@ -57,7 +57,7 @@ def test_get_item_by_id_no_matching():
     assert item_c in items
 
     # *********************************************************************
-    # ****** Addidtional tests **********
+    # ****** Additional tests **********
     # *********************************************************************
 
 def test_item_id_zero_is_kept():
