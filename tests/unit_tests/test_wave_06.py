@@ -33,8 +33,17 @@ def test_get_no_matching_items_by_category():
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
-    assert not items
+    assert items == []
 
+def test_get_none_cotegory_provided_by_category():
+    item_a = Clothing()
+    item_b = Item()
+    item_c = Decor()
+    vendor = Vendor(inventory=[item_a, item_b, item_c])
+
+    items = vendor.get_by_category(None)
+
+    assert items == []
 
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
