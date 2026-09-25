@@ -4,15 +4,15 @@ Talk through each section with your partner. Add notes on what you discussed and
 
 ## Accessibility Needs
 
-Daria: At this time, no needs idenitfied.
+Daria: At this time, no needs identified.
 
-Rahma: N/A
+Rahma: At this time, no needs identified.
 
 ## Collaboration vs. Individual Work Expectations
 
-Work flow: 
+Workflow: 
 
-- Seperate branches for Wave 1 - 6
+- Separate branches for Wave 1 - 6
 - Pull requests to merge feature branches into the main, author merges branch using below schedule.
 - Consecutively, merge Wave 1 into Main, then Wave 2 into Main .. until Wave 6
 
@@ -25,16 +25,16 @@ Schedule:
 
 - Meet on Tuesday 1-3 PM to review Wave 1-4
 
-3. Rahma: Wave 5 (PR Open by Wednesday 1:00 PM PST) 
+3. Rahma: Wave 5 (PR Open by Wednesday 2:00 PM PST) 
 
 - Meet on Wednesday 2-3 PM review Wave 5, Daria can close the PR for Wave 5
 
-4. Daria: Wave 6 (PR Merged by Wednesday 5:00 AM PST ) 
+4. Daria: Wave 6 (PR Merged by Wednesday 5:00 PM PST ) 
 
 - Meet on Thursday 2-3 PM to final touches, any optional code, submit on Learn. 
 
 
-Refractor/Review code:
+Refactor/Review Code:
 - Discussion was done after working Wave 1 - 6
 - Review during coworking sessions.
 
