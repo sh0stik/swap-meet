@@ -20,6 +20,7 @@ class Vendor:
         return None
 
     def swap_items(self, other_vendor, my_item, their_item):
+        """Validate both items before modifying either inventory to prevent a partial swap."""
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
 
@@ -35,6 +36,7 @@ class Vendor:
         return True
 
     def swap_first_item(self, other_vendor):
+        """Delegate exchange to swap_items() after selecting each vendor's first item."""
         if not self.inventory or not other_vendor.inventory:
             return False
 
@@ -44,6 +46,7 @@ class Vendor:
         return self.swap_items(other_vendor, my_first, their_first)
 
     def get_by_category(self, category):
+        """Use get_category() so category matching works consistently across Item subclasses."""
         items = self.vendor_filter(
             lambda item: item.get_category() == category, self.inventory
         )
@@ -51,6 +54,7 @@ class Vendor:
         return items
 
     def get_best_by_category(self, category):
+        """Reuse vendor_max() to select the highest-condition item within the category."""
         category_items = self.get_by_category(category)
         if not category_items:
             return None
@@ -60,12 +64,14 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        """Search each vendor's inventory for the category requested by the other vendor."""
         best_item_for_them = self.get_best_by_category(their_priority)
         best_item_for_me = other_vendor.get_best_by_category(my_priority)
 
         return self.swap_items(other_vendor, best_item_for_them, best_item_for_me)
 
     def swap_by_newest(self, other_vendor):
+        """Negate age so vendor_max() can select the smallest age as the newest item."""
         if (
             len({item.age for item in self.inventory}) <= 1
             or len({item.age for item in other_vendor.inventory}) <= 1
@@ -79,6 +85,7 @@ class Vendor:
         return self.swap_items(other_vendor, my_newest, their_newest)
 
     def vendor_filter(self, key, collection):
+        """Accept a condition to keep filtering reusable for different criteria."""
         output = []
         for item in collection:
             if key(item):
@@ -87,6 +94,7 @@ class Vendor:
         return output
 
     def vendor_max(self, collection, key):
+        """Track the current maximum and its value so the collection is searched without modification."""
         if not collection:
             return None
 
